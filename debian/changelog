@@ -1,0 +1,244 @@
+pybtex (0.23.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+    - Compatible with Python 3.9 (closes: #973071).
+  * Drop Ensure-sort-only-sorts.patch, included in the new release.
+  * Switch from nose to pytest for testing.
+  * Add a patch to use packaged intersphinx inventory for Python API.
+    - Also make python-pybtex-doc recommend python3-doc.
+  * Update Source field in debian/copyright for the new PyPI domain.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 03 Nov 2020 15:10:16 +0300
+
+pybtex (0.22.2-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Drop Get-rid-of-ur.patch, no longer needed.
+  * Build-depend on python3-six.
+  * Add upstream patch to make sure BaseSortingStyle.sort() does not remove
+    entries. This is needed for sphinxcontrib-bibtex tests to pass.
+  * Update debian/copyright.
+  * Bump Standards-Version to 4.5.0, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 17 Apr 2020 14:34:56 +0300
+
+pybtex (0.21-4) unstable; urgency=medium
+
+  * Team upload.
+  * Also drop Python 2 usage from the autopkgtest tests (Closes: #937396).
+
+ -- Stuart Prescott <stuart@debian.org>  Tue, 21 Jan 2020 02:25:19 +1100
+
+pybtex (0.21-3) unstable; urgency=medium
+
+  * Team upload.
+  * Use Python 3 for building docs.
+  * Drop Python 2 support (Closes: #937396).
+  * Get rid of "ur" to fix compatibility with Python 3.4+.
+  * Bump debhelper compat level to 12.
+  * Enable autopkgtest-pkg-python testsuite.
+  * Bump standards version to 4.4.0 (no changes).
+  * d/control: Set Vcs-* to salsa.debian.org.
+  * Use debhelper-compat instead of debian/compat.
+
+ -- Ondřej Nový <onovy@debian.org>  Fri, 06 Sep 2019 11:53:00 +0200
+
+pybtex (0.21-2) unstable; urgency=medium
+
+  * Bump debhelper version to 10, no changes required
+  * Let the pybtex CLI use the Python 3 backend
+  * Normalize the preamble of the rules file
+  * Drop superfluous .PHONY occurrences
+  * Fix a typo in deb/changelog
+
+ -- Ghislain Antony Vaillant <ghisvail@gmail.com>  Wed, 26 Jul 2017 10:05:27 +0100
+
+pybtex (0.21-1) unstable; urgency=medium
+
+  * Upgrade watch file to version 4
+  * Add missing gbp configuration
+  * New upstream version 0.21
+  * Drop the patch queue, no longer required
+  * Run cme fix on control file
+    - Wrap and sort fields and dependencies
+    - Drop superfluous versioned dependencies
+    - Bump standards version to 4.0.0
+  * Run cme fix on copyright file
+    - Use secure Format URI
+    - Sort license paragraphs
+  * Set the Source field to the PyPI URI
+  * Use secure Homepage URI
+  * Filter egg-info directory with extend-diff-ignore
+  * Run the tests in isolation from the source tree
+  * Add versioned dependency to latexcodec
+  * Provide separate packages for Python 2 and docs (Closes: #856930)
+  * Provide a package for Python 3
+  * Build the docs using the upstream Makefile
+  * Add support for the nocheck build profile
+  * Add support for the nodoc build profile
+  * Provide the alternative entry-point via symlinks
+  * Improve the autopkgtest suite
+    - Install the upstream test suite
+    - Run tests against the installed package
+    - Run tests for all supported Python versions
+  * Adopt the package
+    - Transfer maintenance to the Debian Science Team
+    - Remove Daniel Stender from Uploaders
+    - Add myself to Uploaders
+    - Add myself to copyright (Closes: #860969)
+
+ -- Ghislain Antony Vaillant <ghisvail@gmail.com>  Sat, 22 Jul 2017 21:55:03 +0100
+
+pybtex (0.20.1-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #818183).
+  * deb/control:
+    + added python-latexcodec to build deps.
+    + bumped standards to 3.9.8 (no changes needed).
+    + dropped python-yaml from binary package deps (not needed).
+  * deb/copyright: added Hong Xu, updated copyright span.
+
+ -- Daniel Stender <stender@debian.org>  Wed, 11 May 2016 13:53:55 +0200
+
+pybtex (0.19-2) unstable; urgency=medium
+
+  * Added hardcode-copyright-year.patch.
+
+ -- Daniel Stender <stender@debian.org>  Fri, 01 Apr 2016 21:14:34 +0200
+
+pybtex (0.19-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #810525).
+  * Set up DEP-8 testing.
+  * deb/control:
+    + put group into Maintainer field (unconfirmed group uploads).
+    + deps:
+      * bumped Debhelper version to 9 (changed also deb/compat).
+      * added dh-python to build deps.
+      * don't depend on python-all (not needed).
+      * dropped dep on pyparsing (obsolete).
+      * added dep for Sphinx, dropped Jinja2 and Docutils.
+      * moved Pyyaml from Recommends to Depends (is now install_requires).
+    + removed X-Python-Version (not needed).
+    + bumped Standards-Version to 3.9.7 (no changes needed).
+    + updated Homepage, uploader email address.
+    + use HTTPS for Vcs-Browser.
+  * deb/copyright:
+    + updated copyright spans and email addresses.
+    + put Bitbucket code repo in Source field.
+  * deb/rules:
+    + build with Pybuild.
+    + use Pybuild customization for dh_auto_test, moved override up.
+    + update and cosmectics in dh_auto_install override.
+    + installed override to dh_installdocs to build docs with Sphinx.
+    + installed override for dh_compress to save examples from compressing.
+  * deb/watch: watch pypi.debian.net.
+  * Updated: deb/docs, deb/doc-base.
+
+ -- Daniel Stender <stender@debian.org>  Mon, 14 Mar 2016 15:58:22 +0100
+
+pybtex (0.18-1) unstable; urgency=low
+
+  * New upstream release.
+  * deb/changelog: fixed typo (fixes lintian complaint on
+    experimental-to-unstable-w/o-comment).
+  * deb/control:
+    + Updated maintainer email address.
+    + Bumped standards to 3.9.5 (no changes needed).
+    + Use canonical URIs for Vcs-* fields [Jakub Wilk].
+    + Added python-pkg-resources to Depends (Closes: #684699).
+    + Removed Conflicts (obsolete).
+  * deb/copyright: changed Format line for DEP-5, updated.
+  * deb/rules:
+    + Added export lines for DH_VERBOSE and DEB_BUILD_OPTIONS.
+    + Removed build targets in favour of simplified dh sequencer call.
+  * Changed to build with dh_python2:
+    + deb/control: removed b-d on python-support, bumped version of
+      python-all to 2.6.6-3~.
+    + deb/rules: rearragned, added python2 to dh sequencer.
+  * Upstream now ships with changelog:
+    + deb/clean: removed doc/changelog.
+    + deb/control: removed b-p on elinks.
+    + deb/rules: dropped override for dh_installchangelogs.
+  * Removed lintian-overrides (obsolete).
+
+ -- Daniel Stender <debian@danielstender.com>  Sat, 19 Jul 2014 13:20:07 +0200
+
+pybtex (0.15-1) unstable; urgency=low
+
+  * New maintainer (closes: #587423).
+  * New upstream release
+    + Upstream relicenced everything to Expat.
+   * Changed debian/copyright
+    + to meet CANDIDATE DEP-5.
+    + removed GPL-2+ license for database/convert/__main__.py.
+    + added BSD-3-clause license for custom_fixers/fix_alt_unicode.py
+  * Bumped standards version to 3.9.2 (no changes needed).
+  * Uploaded to unstable.
+
+ -- Daniel Stender <daniel@danielstender.com>  Wed, 25 May 2011 13:00:53 +0200
+
+pybtex (0.14-1) experimental; urgency=low
+
+  * New upstream release.
+    + Bump minimum Python version to 2.6.
+    + Drop patch to import bzrlib only when needed; applied upstream.
+    + Improve performance on very long name lists (closes: #595082).
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 25 Sep 2010 12:58:04 +0200
+
+pybtex (0.13.2-2) unstable; urgency=low
+
+  * Fix a typo in debian/rules. Thanks to Michael Fladischer for spotting
+    that.
+  * Drop work-around for bug #575377.
+  * Bump standards version to 3.9.1.
+    + Override lintian's conflicts-with-version (Breaks is not sufficient for
+      pybtex).
+  * Get rid of build-dependency on bzr (closes: #593029).
+
+ -- Jakub Wilk <jwilk@debian.org>  Tue, 17 Aug 2010 23:58:25 +0200
+
+pybtex (0.13.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Run tests for all supported Python versions.
+    + Build-depend on python-all.
+  * Fix watch file to accept more than one dot in version number.
+  * Work around the fact that different PKG-INFO files can be generated for
+    different Python versions.
+
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 04 Mar 2010 14:56:58 +0100
+
+pybtex (0.13.1-1) unstable; urgency=low
+
+  * New upstream release:
+    + Drop Python 2.5 compatibility patch, applied upstream.
+  * Bump standards version to 3.8.4 (no changes needed).
+  * Update my e-mail address.
+  * Remove requires.txt (dpkg is better at handling dependencies).
+  * Respect the ‘nocheck’ build option.
+  * Update debian/copyright.
+
+ -- Jakub Wilk <jwilk@debian.org>  Thu, 18 Feb 2010 19:54:23 +0100
+
+pybtex (0.12-2) unstable; urgency=low
+
+  * Don't remove alternatives in prerm/upgrade.
+  * Replace Breaks with Conflicts.
+  * Install alternative for /usr/bin/bibtex (closes: #560376).
+    Conflict with TeX Live packages, which installed this file.
+  * Update debian/copyright in accordance to the latest DEP-5 version.
+  * Switch to source format 3.0 (quilt).
+  * Make tests/run_bibtex.py compatible with Python 2.5.
+  * Run unit-tests at build time.
+
+ -- Jakub Wilk <ubanus@users.sf.net>  Tue, 29 Dec 2009 14:07:07 +0100
+
+pybtex (0.12-1) unstable; urgency=low
+
+  * Initial release (closes: #535116).
+
+ -- Jakub Wilk <ubanus@users.sf.net>  Sat, 05 Dec 2009 15:35:02 +0100

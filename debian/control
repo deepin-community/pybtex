@@ -1,0 +1,94 @@
+Source: pybtex
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Ghislain Antony Vaillant <ghisvail@gmail.com>
+Section: tex
+Priority: optional
+Build-Depends: debhelper-compat (= 12),
+               dh-python,
+               dpkg-dev (>= 1.17.14),
+               python3-sphinx <!nodoc>,
+               python3-all,
+               python3-doc <!nodoc>,
+               python3-latexcodec (>= 1.0.4),
+               python3-pytest <!nocheck>,
+               python3-setuptools,
+               python3-six,
+               python3-yaml,
+               sphinx-common
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/science-team/pybtex
+Vcs-Git: https://salsa.debian.org/science-team/pybtex.git
+Homepage: https://pybtex.org/
+Testsuite: autopkgtest-pkg-python
+
+Package: pybtex
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         python3-pybtex (= ${binary:Version})
+Description: BibTeX-compatible bibliography processor
+ Pybtex reads citation information from a file and produces a formatted
+ bibliography. BibTeX style files are supported. Alternatively it is
+ possible to write styles in Python.
+ .
+ Pybtex currently understands the following bibliography formats:
+  * BibTeX
+  * BibTeXML
+  * YAML-based format
+ .
+ The resulting bibliography may be output in one of the following formats:
+  * LaTeX
+  * HTML
+  * plain text
+ .
+ This package provides the command-line interface.
+
+Package: python3-pybtex
+Architecture: all
+Section: python
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         python3-pkg-resources
+Suggests: python-pybtex-doc <!nodoc>
+Description: public modules for pybtex (Python 3)
+ Pybtex reads citation information from a file and produces a formatted
+ bibliography. BibTeX style files are supported. Alternatively it is
+ possible to write styles in Python.
+ .
+ Pybtex currently understands the following bibliography formats:
+  * BibTeX
+  * BibTeXML
+  * YAML-based format
+ .
+ The resulting bibliography may be output in one of the following formats:
+  * LaTeX
+  * HTML
+  * plain text
+ .
+ This package provides the modules for Python 3.
+
+Package: python-pybtex-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends},
+         ${sphinxdoc:Depends}
+Recommends: python3-doc
+Built-Using: ${sphinxdoc:Built-Using}
+Description: documentation for pybtex
+ Pybtex reads citation information from a file and produces a formatted
+ bibliography. BibTeX style files are supported. Alternatively it is
+ possible to write styles in Python.
+ .
+ Pybtex currently understands the following bibliography formats:
+  * BibTeX
+  * BibTeXML
+  * YAML-based format
+ .
+ The resulting bibliography may be output in one of the following formats:
+  * LaTeX
+  * HTML
+  * plain text
+ .
+ This package provides the documentation.
+Build-Profiles: <!nodoc>

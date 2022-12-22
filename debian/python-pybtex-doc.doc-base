@@ -1,0 +1,9 @@
+Document: python-pybtex-doc
+Title: Pybtex Documentation
+Author: Andrey Golovizin
+Abstract: This is the reference documentation for pybtex.
+Section: Text
+
+Format: HTML
+Index: /usr/share/doc/python-pybtex-doc/html/index.html
+Files: /usr/share/doc/python-pybtex-doc/html/*.html

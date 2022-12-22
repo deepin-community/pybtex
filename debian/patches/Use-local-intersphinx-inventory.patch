@@ -1,0 +1,23 @@
+From: Dmitry Shachnev <mitya57@debian.org>
+Date: Tue, 3 Nov 2020 14:39:37 +0300
+Subject: Use local intersphinx inventory
+
+To prevent Sphinx from downloading https://docs.python.org/3/objects.inv
+during build.
+---
+ docs/source/conf.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/docs/source/conf.py b/docs/source/conf.py
+index 40b7bfc..3edcb2f 100644
+--- a/docs/source/conf.py
++++ b/docs/source/conf.py
+@@ -42,7 +42,7 @@ extensions = [
+ ]
+ 
+ intersphinx_mapping = {
+-    'python': ('https://docs.python.org/3/', None),
++    'python': ('/usr/share/doc/python3-doc/html', None),
+ }
+ 
+ extlinks = {
