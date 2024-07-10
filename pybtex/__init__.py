@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2019  Andrey Golovigin
+# Copyright (c) 2006-2021  Andrey Golovizin
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -27,7 +27,7 @@ from __future__ import unicode_literals
 from os import path
 
 
-__version__ = '0.23.0'
+__version__ = '0.24.0'
 
 
 class Engine(object):

@@ -5,7 +5,8 @@ Test-Command: set -e
  ; echo "Testing with $py:"
  ; $py -m pytest -v
  ; done
-Depends: python3-all,
-         python3-pybtex,
-         python3-pytest
+Depends:
+ python3-all,
+ python3-pybtex,
+ python3-pytest,
 Restrictions: allow-stderr

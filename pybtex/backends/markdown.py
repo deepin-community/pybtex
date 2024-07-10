@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
 #
-# Copyright (c) 2006-2019  Andrey Golovigin
+# Copyright (c) 2006-2021  Andrey Golovizin
 # Copyright (c) 2014  Jorrit Wronski
 #
 # Permission is hereby granted, free of charge, to any person obtaining
@@ -32,6 +32,8 @@ Markdown output backend.
 <BLANKLINE>
 >>> print(Tag('em', 'Non-', 'empty').render(markdown))
 *Non\-empty*
+>>> print(Tag('sup', 'super', 'man').render(markdown))
+<sup>superman</sup>
 >>> print(HRef('/', '').render(markdown))
 <BLANKLINE>
 >>> print(HRef('/', 'Non-', 'empty').render(markdown))
@@ -105,8 +107,8 @@ class Backend(BaseBackend):
 
     def format_tag(self, tag_name, text):
         tag = self.tags.get(tag_name)
-        if tag is None:
-            return text
+        if tag is None:  # fall back on html tags
+            return r'<{0}>{1}</{0}>'.format(tag_name, text) if text else u''
         else:
             return r'{0}{1}{0}'.format(tag, text) if text else u''
 

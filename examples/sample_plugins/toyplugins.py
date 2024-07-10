@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2019  Andrey Golovigin
+# Copyright (c) 2006-2021  Andrey Golovizin
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -23,9 +23,7 @@
 """Sample Pybtex plugins."""
 
 
-import imp
-
-from pybtex.database import BibliographyData, Entry, FieldDict, Person
+from pybtex.database import BibliographyData, Entry, Person
 from pybtex.database.input import BaseParser
 from pybtex.database.output import BaseWriter
 from pybtex.utils import OrderedCaseInsensitiveDict
@@ -35,7 +33,7 @@ class PythonWriter(BaseWriter):
     """Bibliography output plugin which formats the data as Python code."""
 
     def write_stream(self, bib_data, stream):
-        print >>stream, repr(bib_data)
+        print(repr(bib_data), file=stream)
 
 
 class PythonParser(BaseParser):
@@ -47,7 +45,6 @@ class PythonParser(BaseParser):
             'OrderedCaseInsensitiveDict': OrderedCaseInsensitiveDict,
             'Entry': Entry,
             'Person': Person,
-            'FieldDict': FieldDict,
         }
         code = stream.read()
         self.data = eval(code, context)

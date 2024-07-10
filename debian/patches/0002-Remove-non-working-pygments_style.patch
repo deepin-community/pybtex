@@ -1,0 +1,20 @@
+From: Jochen Sprickerhof <jspricke@debian.org>
+Date: Fri, 6 Jan 2023 19:00:22 +0100
+Subject: Remove non working pygments_style
+
+---
+ docs/theme/theme.conf | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/docs/theme/theme.conf b/docs/theme/theme.conf
+index 751e088..4bd722b 100644
+--- a/docs/theme/theme.conf
++++ b/docs/theme/theme.conf
+@@ -1,7 +1,6 @@
+ [theme]
+ inherit = basic
+ stylesheet = master.css
+-pygments_style = pybtex
+ 
+ [options]
+ nosidebar = true

@@ -1,1 +1,3 @@
 Use-local-intersphinx-inventory.patch
+0002-Remove-non-working-pygments_style.patch
+Update-extlinks-for-Sphinx-6.x.patch
