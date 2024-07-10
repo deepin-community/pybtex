@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2019  Andrey Golovigin
+# Copyright (c) 2006-2021  Andrey Golovizin
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -95,7 +95,7 @@ class PybtexStringIO(PybtexDatabaseIO):
 class PybtexEntryStringIO(PybtexDatabaseIO):
     # the first entry in reference_data
     def __init__(self, bib_format):
-        super().__init__(bib_format)
+        super(PybtexEntryStringIO, self).__init__(bib_format)
         # get 1st key
         self.key = list(reference_data.entries.keys())[0]
         # make Entry as single-item BibliographyData

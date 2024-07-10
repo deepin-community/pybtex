@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2019  Andrey Golovigin
+# Copyright (c) 2006-2021  Andrey Golovizin
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -328,6 +328,9 @@ class Style(BaseStyle):
         ]
         return template
 
+    def get_online_template(self, e):
+        return self.get_misc_template(e)
+
     def get_phdthesis_template(self, e):
         template = toplevel [
             sentence [self.format_names('author')],
@@ -410,7 +413,8 @@ class Style(BaseStyle):
     def format_web_refs(self, e):
         # based on urlbst output.web.refs
         return sentence [
-            optional [ self.format_url(e) ],
+            optional [ self.format_url(e),
+                       optional [ ' (visited on ', field('urldate'), ')' ] ],
             optional [ self.format_eprint(e) ],
             optional [ self.format_pubmed(e) ],
             optional [ self.format_doi(e) ],

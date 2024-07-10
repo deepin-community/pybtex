@@ -1,0 +1,22 @@
+From: Jerry James <loganjerry@gmail.com>
+Date: Tue, 21 Mar 2023 08:59:35 -0600
+Subject: Update extlinks for Sphinx 6.x
+
+(cherry picked from commit 75b5ccc265e07d4b99ab69a33201f98702ed7d09)
+---
+ docs/source/conf.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/docs/source/conf.py b/docs/source/conf.py
+index d250978..483ad6e 100644
+--- a/docs/source/conf.py
++++ b/docs/source/conf.py
+@@ -46,7 +46,7 @@ intersphinx_mapping = {
+ }
+ 
+ extlinks = {
+-    'source': ('https://bitbucket.org/pybtex-devs/pybtex/src/HEAD/%s', ''),
++    'source': ('https://bitbucket.org/pybtex-devs/pybtex/src/HEAD/%s', '%s'),
+ }
+ 
+ # Add any paths that contain templates here, relative to this directory.

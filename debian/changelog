@@ -1,3 +1,36 @@
+pybtex (0.24.0-4) unstable; urgency=medium
+
+  * Team upload.
+  * Backport upstream patch to fix build with Sphinx ≥ 6 (closes: #1042689).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Fri, 18 Aug 2023 16:59:47 +0300
+
+pybtex (0.24.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix pygments_style name (Closes: #1026694)
+  * Improve d/rules
+  * Add R³
+  * Move package description to source package
+  * Use dh-sequence-*
+  * Use execute_after in d/rules
+
+ -- Jochen Sprickerhof <jspricke@debian.org>  Fri, 06 Jan 2023 19:19:33 +0100
+
+pybtex (0.24.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Rebuild to drop old sphinx from Built-Using field.
+  * debian/: Apply wrap-and-sort -abst.
+  * Drop ancient build-dep dpkg-dev.
+  * debian/control: Bump Standards-Version to 4.6.1.
+  * debian/control: Bump debhelper compat to v13.
+  * debian/patches: Refresh patches.
+  * debian/copyright: Update information.
+
+ -- Boyuan Yang <byang@debian.org>  Sat, 11 Jun 2022 21:21:54 -0400
+
 pybtex (0.23.0-1) unstable; urgency=medium
 
   * Team upload.

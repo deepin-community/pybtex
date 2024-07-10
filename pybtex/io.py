@@ -1,4 +1,4 @@
-# Copyright (c) 2006-2019  Andrey Golovigin
+# Copyright (c) 2006-2021  Andrey Golovizin
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -25,8 +25,9 @@
 from __future__ import absolute_import, unicode_literals
 
 import io
+import posixpath
 import sys
-from os import environ, path
+from os import environ
 
 from pybtex.exceptions import PybtexError
 from pybtex.kpathsea import kpsewhich
@@ -44,12 +45,12 @@ def get_stream_encoding(stream):
 def _decode_filename(filename, errors='strict'):
     """Decode byte-encoded filename."""
 
-    encoding = sys.getfilesystemencoding() or self.get_default_encoding()
+    encoding = sys.getfilesystemencoding() or get_default_encoding()
     return filename.decode(encoding, errors=errors)
 
 
 def _open_existing(opener, filename, mode, locate, **kwargs):
-    if not path.isfile(filename):
+    if not posixpath.isfile(filename):
         found = locate(filename)
         if found:
             filename = found
@@ -61,7 +62,7 @@ def _open_or_create(opener, filename, mode, environ, **kwargs):
         return opener(filename, mode, **kwargs)
     except EnvironmentError as error:
         if 'TEXMFOUTPUT' in environ:
-            new_filename = path.join(environ['TEXMFOUTPUT'], filename)
+            new_filename = posixpath.join(environ['TEXMFOUTPUT'], filename)
             try:
                 return opener(new_filename, mode, **kwargs)
             except EnvironmentError:

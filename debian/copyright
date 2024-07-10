@@ -4,7 +4,7 @@ Upstream-Contact: Andrey Golovizin <ag@sologoc.com>
 Source: https://pypi.org/project/pybtex/
 
 Files: *
-Copyright: 2006-2019 Andrey Golovizin <ag@sologoc.com>
+Copyright: 2006-2021 Andrey Golovizin <ag@sologoc.com>
            2014-2015 Matthias C. M. Troffaes
            2015      Jorrit Wronski
            2016      Hong Xu

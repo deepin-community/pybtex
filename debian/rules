@@ -11,25 +11,20 @@ else
 export PYBUILD_BEFORE_TEST=cp -r {dir}/*.egg-info {build_dir}
 export PYBUILD_AFTER_TEST=rm -rf {build_dir}/*.egg-info
 endif
+ifeq (,$(findstring nodoc,$(DEB_BUILD_PROFILES)))
+export PYBUILD_AFTER_BUILD=PYTHONPATH={dir} $(MAKE) -C docs html
+endif
 
 
 %:
-	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+	dh $@ --buildsystem=pybuild
 
-override_dh_auto_clean:
-	dh_auto_clean
+execute_after_dh_auto_clean:
 ifeq (,$(findstring nodoc,$(DEB_BUILD_PROFILES)))
 	$(MAKE) -C docs clean
 endif
 
-override_dh_auto_build:
-	dh_auto_build
-ifeq (,$(findstring nodoc,$(DEB_BUILD_PROFILES)))
-	PYTHONPATH=$(CURDIR) $(MAKE) -C docs html
-endif
-
-override_dh_auto_install:
-	dh_auto_install
+execute_after_dh_auto_install:
 	dh_movefiles --package=pybtex --sourcedir=debian/python3-pybtex usr/bin
 
 override_dh_compress:
